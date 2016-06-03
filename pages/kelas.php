@@ -9,13 +9,13 @@
 <a href="index.php?page=kelas_add">Tambah </a> 
 <?php 
 $query = mysql_query("SELECT
-    ,kelas.nama_kelas
-    , jurusan.nama_jurusan
-    , kelas.status
-
-FROM `bk_smk`.`kelas`
-    Left JOIN `bk_smk`.`jurusan` 
-        ON (kelas.id_jurusan = jurusan.id_jurusan) order BY jurusan.nama_jurusan");
+    kelas.id_kelas,
+    kelas.nama_kelas,
+    jurusan.nama_jurusan,
+	kelas.status
+FROM `kelas`
+    LEFT JOIN `jurusan` 
+        ON (kelas.id_jurusan = jurusan.id_jurusan) ORDER BY jurusan.nama_jurusan");
 ?>
 <table class="table table-striped table-bordered table-hover" >
   <thead>
@@ -28,22 +28,21 @@ FROM `bk_smk`.`kelas`
   </tr>
   </thead>
   <tbody>
-  <?php 
-  $no = 1;
-  while($data = mysql_fetch_array($query))
-  {
-  ?>
-  <tr>
-    <td><?php echo $no ?></td>
-    <td><?php echo $data['nama_kelas'] ?></td>
-    <td><?php echo $data['nama_jurusan'] ?></td>
-    <td><?php echo $data['status'] ?></td>
-    <td><a href="index.php?page=kelas_edit&id_kelas=<?php echo $data['id_kelas'] ?>">edit</a></td> 
-  </tr>
-  <?php 
-  $no++;
-  }
-  ?>
+  <?php if($query != null) {
+	$i = 0;
+	while($data = mysql_fetch_array($query)) {
+	$i++; ?>
+		<tr>
+			<td><?php echo $i ?></td>
+			<td><?php echo $data['nama_kelas'] ?></td>
+			<td><?php echo $data['nama_jurusan'] ?></td>
+			<td><?php echo $data['status'] ?></td>
+			<td><a href="index.php?page=kelas_edit&id_kelas=<?php echo $data['id_kelas'] ?>">edit</a></td> 
+		</tr>
+	<?php }
+  } else {?>
+  data kosong
+  <?php }?>
   </tbody>
 </table>
 </body>
