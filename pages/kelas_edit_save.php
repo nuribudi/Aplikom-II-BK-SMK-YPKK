@@ -3,13 +3,13 @@
 //exit();
 $id_kelas=$_POST['id_kelas'];
 $nama_kelas=$_POST['nama_kelas'];
-$tingkat_kelas=$_POST['tingkat_kelas'];
-$status_kelas=$_POST['status_kelas'];
-$query=mysql_query("UPDATE `sma3_bk`.`kelas`
-SET `id_kelas` = '$id_kelas',
+$id_jurusan=$_POST['id_jurusan'];
+$status=$_POST['status'];
+$query=mysql_query("UPDATE `kelas`
+SET 
   `nama_kelas` = '$nama_kelas',
-  `tingkat_kelas` = '$tingkat_kelas',
-  `status_kelas` = '$status_kelas'
+  `id_jurusan` = '$id_jurusan',
+  `status` = '$status'
 WHERE `id_kelas` = '$id_kelas';");
 ?>
 <meta http-equiv="refresh" content="0;index.php?page=kelas"/>
