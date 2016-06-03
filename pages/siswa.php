@@ -11,15 +11,15 @@
 <a href="index.php?page=siswa_add">Tambah Siswa </a>
 <?php 
 $query = mysql_query("SELECT
-    `nis`, 
-    `nisn`, 
-    `nama`, 
-    `jenis_kelamin`, 
-    `alamat`, 
-    `tlpn_siswa`, 
-    `tlpn_orang_tua`, 
+    `siswa`.`nis`, 
+    `siswa`.`nisn`, 
+    `siswa`.`nama`, 
+    `siswa`.`jenis_kelamin`, 
+    `siswa`.`alamat`, 
+    `siswa`.`tlpn_siswa`, 
+    `siswa`.`tlpn_orang_tua`, 
     `kelas`.`nama_kelas`, 
-    `status`
+    `siswa`.`status`
 FROM `siswa` LEFT JOIN `kelas` ON (`siswa`.`id_kelas` = `kelas`.`id_kelas`) ORDER BY `kelas`.`nama_kelas`");
 ?>
 <table class="table table-striped table-bordered table-hover" >
