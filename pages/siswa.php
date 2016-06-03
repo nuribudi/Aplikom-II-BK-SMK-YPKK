@@ -11,18 +11,16 @@
 <a href="index.php?page=siswa_add">Tambah Siswa </a>
 <?php 
 $query = mysql_query("SELECT
-     siswa.nis
-    ,siswa.nisn
-    , siswa.nama
-    , siswa.jenis_kelamin
-    , siswa.alamat
-    , siswa.tlpn_siswa
-    , siswa.tlpn_orang_tua
-    , kelas.nama_kelas
-    , siswa.status
-FROM `bk_smk`.`siswa`
-    Left JOIN `bk_smk`.`kelas` 
-        ON (siswa.id_kelas = kelas.id_kelas) order BY kelas.nama_kelas");
+    `nis`, 
+    `nisn`, 
+    `nama`, 
+    `jenis_kelamin`, 
+    `alamat`, 
+    `tlpn_siswa`, 
+    `tlpn_orang_tua`, 
+    `kelas`.`nama_kelas`, 
+    `status`
+FROM `siswa` LEFT JOIN `kelas` ON (`siswa`.`id_kelas` = `kelas`.`id_kelas`) ORDER BY `kelas`.`nama_kelas`");
 ?>
 <table class="table table-striped table-bordered table-hover" >
   <thead>
@@ -41,28 +39,27 @@ FROM `bk_smk`.`siswa`
   </tr>
   </thead>
   <tbody>
-  <?php 
-  $no = 1;
-  while($data = mysql_fetch_array($query))
-  {
-  ?>
-  <tr>
-    <td><?php echo $no ?></td>
-    <td><?php echo $data['nis'] ?></td>
-    <td><?php echo $data['nisn'] ?></td>
-    <td><?php echo $data['nama'] ?></td>
-    <td><?php echo $data['jenis_kelamin'] ?></td>
-    <td><?php echo $data['alamat'] ?></td>
-    <td><?php echo $data['tlpn_siswa'] ?></td>
-    <td><?php echo $data['tlpn_orang_tua'] ?></td>
-    <td><?php echo $data['nama_kelas'] ?></td>
-    <td><?php echo $data['status'] ?></td>
-    <td><a href="index.php?page=siswa_edit&nis=<?php echo $data['nis'] ?>">edit</a></td>
-  </tr>
-  <?php 
-  $no++;
-  }
-  ?>
+  <?php if($query != null) {
+	$i = 0;
+	while($data = mysql_fetch_array($query)) {
+	$i++; ?>
+		<tr>
+			<td><?php echo $i ?></td>
+			<td><?php echo $data['nis'] ?></td>
+			<td><?php echo $data['nisn'] ?></td>
+			<td><?php echo $data['nama'] ?></td>
+			<td><?php echo $data['jenis_kelamin'] ?></td>
+			<td><?php echo $data['alamat'] ?></td>
+			<td><?php echo $data['tlpn_siswa'] ?></td>
+			<td><?php echo $data['tlpn_orang_tua'] ?></td>
+			<td><?php echo $data['nama_kelas'] ?></td>
+			<td><?php echo $data['status'] ?></td>
+			<td><a href="index.php?page=siswa_edit&nis=<?php echo $data['nis'] ?>">edit</a></td>
+		</tr>
+	<?php }
+  } else {?>
+  data kosong
+  <?php }?>
   </tbody>
 </table>
 </div>

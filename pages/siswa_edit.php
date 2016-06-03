@@ -5,19 +5,8 @@
 <title>Untitled Document</title>
 </head>
 <?php 
-$id_siswa=$_GET['id_siswa'];
-$query=mysql_query("SELECT
-  `id_siswa`,
-  `nis`,
-  `nisn`,
-  `nama`,
-  `jenis_kelamin`,
-  `alamat`,
-  `tlpn_siswa`,
-  `tlpn_orang_tua`,
-  `id_kelas`,
-  `status`
-FROM `bk_smk`.`siswa` where id_siswa='$id_siswa'");
+$nis=$_GET['nis'];
+$query=mysql_query("SELECT * FROM `siswa` where nis='$nis'");
 $data=mysql_fetch_array($query);
 ?>
 <body>
@@ -76,7 +65,7 @@ $data=mysql_fetch_array($query);
   $q=mysql_query("select * from kelas");
   while($r=mysql_fetch_array($q)){
   ?>
-      <option value="<?php echo $r['id_kelas'] ?>"><?php echo $r['nama_kelas'] ?></option>
+      <option <?php echo $r['id_kelas'] == $data['id_kelas'] ? 'selected=selected' : '';?> value="<?php echo $r['id_kelas'] ?>"><?php echo $r['nama_kelas'] ?></option>
     <?php }?>
       </select></td>
   </tr>

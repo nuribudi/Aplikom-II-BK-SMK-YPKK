@@ -9,8 +9,8 @@ $tlpn_siswa=$_POST['tlpn_siswa'];
 $tlpn_orang_tua=$_POST['tlpn_orang_tua'];
 $id_kelas=$_POST['id_kelas'];
 $status=$_POST['status'];
-$query=mysql_query("UPDATE `bk_smk`.`siswa`
-SET ``,`nis` = '$nis',
+$query=mysql_query("UPDATE `siswa`
+SET `nis` = '$nis',
 	`nisn` = '$nisn',
   `nama` = '$nama',
   `jenis_kelamin` = '$jenis_kelamin',
@@ -19,7 +19,7 @@ SET ``,`nis` = '$nis',
   `tlpn_orang_tua` = '$tlpn_orang_tua',
    `id_kelas` = '$id_kelas',
   `status` = '$status'
-WHERE `id_siswa` = '$id';");
+WHERE `id_siswa` = '$id_siswa';");
 
 
 
