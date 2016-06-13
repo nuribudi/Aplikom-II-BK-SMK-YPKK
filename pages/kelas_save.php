@@ -1,15 +1,17 @@
+
 <?php
 $nama_kelas=$_POST['nama_kelas'];
-$jurusan=$_POST['jurusan'];
-$status_kelas=$_POST["aktif"];
-$query=mysql_query("INSERT INTO `bk_smk`.`kelas`
-            (
-             `nama_kelas`,
-             `jurusan`,
-             `status_kelas`)
-VALUES (0,
-        '$nama_kelas',
-        '$jurusan',
-        '$status_kelas')");
-?>
-<!-- <meta http-equiv="refresh" content="0;index.php?page=kelas"/> -->
+$id_jurusan=$_POST['id_jurusan'];
+$status=$_POST['status'];
+$query=mysql_query("INSERT INTO kelas
+VALUES 		('',
+			 '$nama_kelas',
+             '$id_jurusan',
+             '$status')");
+
+$hasil=mysql_query($query);
+if ($query){
+	echo"DATA BERHASIL DISIMPAN";?> <meta http-equiv="refresh" content="0;index.php?page=kelas"/>
+	<?php }
+	else {echo "gagal".mysql_error();}
+	?>

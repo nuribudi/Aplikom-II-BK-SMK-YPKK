@@ -10,22 +10,30 @@
 <table class="table table-striped table-bordered table-hover" width="100%" border="1">
    <tr>
     <th scope="row">Kelas</th>
-    <td><label for="tingkat_kelas"></label>
-      <select name="tingkat_kelas" id="tingkat_kelas">
-        <option value="10">X</option>
-        <option value="11">XI</option>
-        <option value="12">XII</option>
+    <td><label for="nama_kelas"></label>
+      <select name="nama_kelas" id="nama_kelas">
+        <option value="X">X</option>
+        <option value="XI">XI</option>
+        <option value="XII">XII</option>
     </select></td>
   </tr>
   <tr>
     <th scope="row">Jurusan</th>
-    <td><label for="tingkat_kelas"></label>
-      <select name="tingkat_kelas" id="tingkat_kelas">
-        <option value="10">RPL</option>
-        <option value="11">Farmasi</option>
-        <option value="12">Akutansi</option>
+    <td><label for="id_jurusan"></label>
+      <select name="id_jurusan" id="id_jurusan">
+        <option value="1">RPL</option>
+        <option value="2">Farmasi</option>
+        <option value="3">Akutansi</option>
     </select></td>
   </tr>
+  <tr>
+    <th align="right" scope="row">Status</th>
+    <td><select name="status" id="status">
+      <option value="aktif">Aktif</option>
+      <option value="tidak aktif">Tidak Aktif</option>
+    </select></td>
+  </tr>
+  <tr
   <tr>
     <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="Simpan" /></th>
   </tr>

@@ -1,10 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
-
+<div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Data Pelanggaran
+                            
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="table-responsive">
 <body>
 <?php 
 $query = mysql_query("SELECT
@@ -23,29 +26,30 @@ $query = mysql_query("SELECT
 <table class="table table-striped table-bordered table-hover" >
   <tr>
     <th scope="col">No</th>
-    <th scope="col">Id Pelanggaran</th>
     <th scope="col">Nama Pelanggaran</th>
     <th scope="col">Poin Pelanggaran</th>
     <th scope="col">Jenis Pelanggaran</th>
     <th scope="col">Status</th>
+    <th scope="col">Action</th>
   </tr>
   <?php
   $no=1;
   while($data=mysql_fetch_array($query)){
-	  $id_pelanggaran=$data['id_pelanggaran'];
     $nama_pelanggaran=$data['nama_pelanggaran'];
 	  $poin_pelanggaran=$data['point_pelanggaran'];
     $nama_jenis_pelanggaran=$data['nama_jenis_pelanggaran'];
     $status=$data['status'];
+     
 	  
   ?>
   <tr>
     <td><?php echo $no ?></td>
-    <td><?php echo $id_pelanggaran ?></td>
     <td><?php echo $nama_pelanggaran ?></td>
     <td><?php echo $poin_pelanggaran ?></td>
     <td><?php echo $nama_jenis_pelanggaran ?></td>
     <td><?php echo $status ?></td>
+    <td><a href="index.php?page=pelanggaran_edit&nis=<?php echo $data['nis'] ?>">edit</a> &nbsp
+    <a href="index.php?page=siswa_hapus&nis=<?php echo $data['nis'] ?>">hapus</a></td>
   </tr>
   <?php
   $no++;}

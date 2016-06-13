@@ -11,6 +11,7 @@
 <a href="index.php?page=siswa_add">Tambah Siswa </a>
 <?php 
 $query = mysql_query("SELECT
+    `siswa`.`id_siswa`,
     `siswa`.`nis`, 
     `siswa`.`nisn`, 
     `siswa`.`nama`, 
@@ -54,7 +55,9 @@ FROM `siswa` LEFT JOIN `kelas` ON (`siswa`.`id_kelas` = `kelas`.`id_kelas`) ORDE
 			<td><?php echo $data['tlpn_orang_tua'] ?></td>
 			<td><?php echo $data['nama_kelas'] ?></td>
 			<td><?php echo $data['status'] ?></td>
-			<td><a href="index.php?page=siswa_edit&nis=<?php echo $data['nis'] ?>">edit</a></td>
+			<td><a href="index.php?page=siswa_edit&nis=<?php echo $data['nis'] ?>">edit</a> &nbsp
+      <a href="index.php?page=siswa_hapus&id_siswa=<?php echo $data['id_siswa'] ?>">hapus</a></td>
+      
 		</tr>
 	<?php }
   } else {?>

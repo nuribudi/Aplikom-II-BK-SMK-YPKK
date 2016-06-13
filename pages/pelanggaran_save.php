@@ -1,19 +1,19 @@
 <?php
 $nama_pelanggaran=$_POST['nama_pelanggaran'];
-$id_jenis_pelanggaran=$_POST['id_jenis_pelanggaran'];
-$poin_pelanggaran=$_POST['poin_pelanggaran'];
+$id_jenis_pelanggaran=$_POST['jenis_pelanggaran'];
+$point_pelanggaran=$_POST['point'];
 $status=$_POST['status'];
 $status=mysql_query("INSERT INTO pelanggaran
             
 VALUES ('',
         '$nama_pelanggaran',
-        '$poin_pelanggaran',
+        '$point_pelanggaran',
         '$id_jenis_pelanggaran',
         '$status');");
 
 $hasil=mysql_query($query);
 if ($query){
-    echo"DATA BERHASIL DIUPDATE";?> <meta http-equiv="refresh" content="0;index.php?page=siswa"/>
+    echo"DATA BERHASIL DIUPDATE";?> <meta http-equiv="refresh" content="0;index.php?page=pelanggaran"/>
     <?php }
     else {echo "gagal".mysql_error();}
     ?>

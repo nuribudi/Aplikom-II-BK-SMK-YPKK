@@ -30,6 +30,14 @@
     <td><input type="text" name="point" id="point" /></td>
   </tr>
   <tr>
+    <th align="right" scope="row">Status</th>
+    <td><select name="status" id="status">
+      <option value="aktif">Aktif</option>
+      <option value="tidak aktif">Tidak Aktif</option>
+    </select></td>
+  </tr>
+  <tr>
+  <tr>
     <th colspan="2" scope="row"><label for="Simpan"></label>
     Simpan      
       <input type="submit" name="Simpan" id="Simpan" value="Submit" /></th>

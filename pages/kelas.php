@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
-
+<div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Kelas
+                            
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="table-responsive">
 <body>
-<a href="index.php?page=kelas_add">Tambah </a> 
+<a href="index.php?page=kelas_add">Tambah Kelas</a> 
 <?php 
 $query = mysql_query("SELECT
     kelas.id_kelas,
@@ -37,7 +40,8 @@ FROM `kelas`
 			<td><?php echo $data['nama_kelas'] ?></td>
 			<td><?php echo $data['nama_jurusan'] ?></td>
 			<td><?php echo $data['status'] ?></td>
-			<td><a href="index.php?page=kelas_edit&id_kelas=<?php echo $data['id_kelas'] ?>">edit</a></td> 
+			<td><a href="index.php?page=kelas_edit&id_kelas=<?php echo $data['id_kelas'] ?>">edit</a> &nbsp 
+      <a href="index.php?page=kelas_hapus&id_kelas=<?php echo $data['id_kelas'] ?>">hapus</a></td> 
 		</tr>
 	<?php }
   } else {?>
